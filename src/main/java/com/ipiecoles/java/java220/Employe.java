@@ -1,5 +1,6 @@
 package com.ipiecoles.java.java220;
 
+import org.joda.time.DateTimeUtils;
 import org.joda.time.LocalDate;
 
 import java.util.Objects;
@@ -27,12 +28,7 @@ public class Employe {
     }
 
     public final Integer getNombreAnneeAnciennete() {
-        LocalDate dateNow = new LocalDate();
-        if(dateEmbauche.getYear() == dateNow.getYear()) {
-            return 0;
-        }
-
-        return dateNow.getYear() - dateEmbauche.getYear();
+        return LocalDate.now().getYear() - dateEmbauche.getYear();
     }
 
     public Integer getNbConges() {
