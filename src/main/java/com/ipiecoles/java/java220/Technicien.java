@@ -4,7 +4,7 @@ import org.joda.time.LocalDate;
 
 import java.util.Objects;
 
-public class Technicien extends Employe implements Comparable {
+public class Technicien extends Employe implements Comparable<Technicien> {
 
     private Integer grade;
 
@@ -45,11 +45,6 @@ public class Technicien extends Employe implements Comparable {
 
     public int compareTo(Technicien technicien) {
         return this.getGrade() - technicien.getGrade();
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        return 0;
     }
 
     @Override
