@@ -8,7 +8,7 @@ import java.util.Objects;
 /**
  * Created by pjvilloud on 21/09/17.
  */
-public class Employe {
+public abstract class Employe {
     private String nom;
     private String prenom;
     private String matricule;
@@ -66,12 +66,10 @@ public class Employe {
     public void augmenterSalaire(Double percentage) {
         //0.5*100 = 50    + 100 = 150      / 100
 
-        this.salaire *= ((percentage*100) + 100 ) / 100;
+        this.salaire *= 1 + percentage;
     }
 
-    public Double getPrimeAnnuelle() {
-        return Entreprise.primeAnnuelleBase();
-    }
+    public abstract Double getPrimeAnnuelle();
 
     public String getNom() {
         return nom;
