@@ -4,6 +4,7 @@ import org.joda.time.LocalDate;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Manager extends Employe {
@@ -57,5 +58,19 @@ public class Manager extends Employe {
                 .filter(technicien -> technicien.getGrade().equals(1))
                 .mapToDouble(Technicien::getSalaire)
                 .sum();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Manager manager = (Manager) o;
+        return Objects.equals(equipe, manager.equipe);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), equipe);
     }
 }
